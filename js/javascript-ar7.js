@@ -48,5 +48,52 @@ const functionsAR7 = {
       },
     },
   },
+  heroSectionFunctions: {
+    main: () => {
+      functionsAR7.heroSectionFunctions.buttonEffectsFunction(
+        "hero-button-ar7-1-lg"
+      );
+      functionsAR7.heroSectionFunctions.buttonEffectsFunction(
+        "hero-button-ar7-1-sm"
+      );
+    },
+    buttonEffectsFunction: (className) => {
+      const buttonsAR7 = document.getElementsByClassName(className);
+      const arrayOfButtons = Array.from(buttonsAR7);
+      window.addEventListener("load", () => {
+        let indexOfButton = 0;
+        const myFunction = () => {
+          setTimeout(() => {
+            const button = arrayOfButtons[indexOfButton];
+            button.style.transform = "scale(1.4)";
+            setTimeout(() => {
+              button.style.transform = "";
+            }, 250);
+            indexOfButton++;
+            if (indexOfButton < arrayOfButtons.length) {
+              myFunction();
+            }
+          }, 250);
+        };
+        setTimeout(() => {
+          myFunction();
+        }, 500);
+      });
+    },
+  },
 };
-functionsAR7.headerFunctions.main();
+
+const runAR7 = () => {
+  try {
+    functionsAR7.headerFunctions.main();
+  } catch (error) {
+    console.log(error);
+  }
+  try {
+    functionsAR7.heroSectionFunctions.main();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+runAR7();
