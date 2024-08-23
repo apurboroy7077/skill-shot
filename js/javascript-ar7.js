@@ -81,6 +81,38 @@ const functionsAR7 = {
       });
     },
   },
+  coursesSectionFunctions: {
+    main: () => {
+      functionsAR7.coursesSectionFunctions.carousel();
+    },
+    carousel: () => {
+      $(".my-class").slick({
+        centerMode: true,
+        centerPadding: "60px",
+        slidesToShow: 1,
+        responsive: [
+          {
+            breakpoint: 768,
+            settings: {
+              arrows: false,
+              centerMode: true,
+              centerPadding: "40px",
+              slidesToShow: 3,
+            },
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              arrows: false,
+              centerMode: true,
+              centerPadding: "40px",
+              slidesToShow: 1,
+            },
+          },
+        ],
+      });
+    },
+  },
 };
 
 const runAR7 = () => {
@@ -91,6 +123,11 @@ const runAR7 = () => {
   }
   try {
     functionsAR7.heroSectionFunctions.main();
+  } catch (error) {
+    console.log(error);
+  }
+  try {
+    functionsAR7.coursesSectionFunctions.main();
   } catch (error) {
     console.log(error);
   }
