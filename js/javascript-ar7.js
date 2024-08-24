@@ -86,30 +86,51 @@ const functionsAR7 = {
       functionsAR7.coursesSectionFunctions.carousel();
     },
     carousel: () => {
-      $(".my-class").slick({
-        centerMode: true,
-        centerPadding: "60px",
-        slidesToShow: 1,
-        responsive: [
-          {
-            breakpoint: 768,
-            settings: {
-              arrows: false,
-              centerMode: true,
-              centerPadding: "40px",
-              slidesToShow: 3,
-            },
+      const swiper = new Swiper(".review-carousel-swiper", {
+        // Optional parameters
+        direction: "horizontal",
+        loop: true,
+
+        // Set slides per view to 1
+        slidesPerView: 1,
+        spaceBetween: 20,
+
+        // Enable autoplay
+        autoplay: {
+          delay: 3000, // Delay between transitions (in milliseconds)
+          disableOnInteraction: false, // Continue autoplay after user interaction
+        },
+
+        // If we need pagination
+        pagination: {
+          el: ".swiper-pagination",
+        },
+
+        // Navigation arrows
+        navigation: {
+          nextEl: ".review-button-next",
+          prevEl: ".review-button-prev",
+        },
+
+        // And if we need scrollbar
+        scrollbar: {
+          el: ".swiper-scrollbar",
+        },
+        // Responsive breakpoints
+        breakpoints: {
+          // When the screen width is >= 768px
+          768: {
+            slidesPerView: 2,
           },
-          {
-            breakpoint: 480,
-            settings: {
-              arrows: false,
-              centerMode: true,
-              centerPadding: "40px",
-              slidesToShow: 1,
-            },
+          1024: {
+            slidesPerView: 3,
+            centeredSlides: true,
           },
-        ],
+          // You can add more breakpoints if needed
+          // 1024: {
+          //   slidesPerView: 3,
+          // },
+        },
       });
     },
   },
