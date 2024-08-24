@@ -86,6 +86,60 @@ const functionsAR7 = {
       functionsAR7.coursesSectionFunctions.carousel();
     },
     carousel: () => {
+      const swiper = new Swiper(".courses-carousel-swiper", {
+        // Optional parameters
+        direction: "horizontal",
+        loop: true,
+
+        // Set slides per view to 1
+        slidesPerView: 1,
+        spaceBetween: 20,
+
+        // Enable autoplay
+        autoplay: {
+          delay: 3000, // Delay between transitions (in milliseconds)
+          disableOnInteraction: false, // Continue autoplay after user interaction
+        },
+
+        // If we need pagination
+        pagination: {
+          el: ".swiper-pagination",
+        },
+
+        // Navigation arrows
+        navigation: {
+          nextEl: ".courses-button-next",
+          prevEl: ".courses-button-prev",
+        },
+
+        // And if we need scrollbar
+        scrollbar: {
+          el: ".swiper-scrollbar",
+        },
+        // Responsive breakpoints
+        breakpoints: {
+          // When the screen width is >= 768px
+          768: {
+            slidesPerView: 2,
+          },
+          1024: {
+            slidesPerView: 3,
+            centeredSlides: true,
+          },
+          // You can add more breakpoints if needed
+          // 1024: {
+          //   slidesPerView: 3,
+          // },
+        },
+      });
+    },
+    carouselCoursesSection: () => {},
+  },
+  reviewSectionFunctions: {
+    main: () => {
+      functionsAR7.reviewSectionFunctions.carousel();
+    },
+    carousel: () => {
       const swiper = new Swiper(".review-carousel-swiper", {
         // Optional parameters
         direction: "horizontal",
@@ -149,6 +203,11 @@ const runAR7 = () => {
   }
   try {
     functionsAR7.coursesSectionFunctions.main();
+  } catch (error) {
+    console.log(error);
+  }
+  try {
+    functionsAR7.reviewSectionFunctions.main();
   } catch (error) {
     console.log(error);
   }
